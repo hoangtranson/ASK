@@ -21,6 +21,11 @@ ASK.isUndefined(); // true
 ```
 
 ## Release history
+- 1.2.0
+  - Refractor code
+  - Added method check isMap
+  - Added method check isWeakMap
+  - Added method check isGeneratorFn
 - 1.1.0
   - Updated Readme.md
 - 1.0.0
