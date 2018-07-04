@@ -21,7 +21,7 @@ ASK.isUndefined(); // true
 ```
 
 ## Release history
-- 1.0.1
+- 1.1.0
   - Updated Readme.md
 - 1.0.0
   - Initial release
