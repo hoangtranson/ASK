@@ -16,9 +16,9 @@ ASK.isUndefined(); // true
 
 ## Installing with npm
 
-## Manual installation
-
-## Contributing
+```
+  npm i what-data-type
+```
 
 ## Release history
 
