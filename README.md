@@ -28,7 +28,6 @@ ASK.isGeneratorFn(function* (){}) // true
 ## Release history
 - 1.2.1
   - Updated new function description
-  - 
 - 1.2.0
   - Refractor code
   - Added method check isMap
