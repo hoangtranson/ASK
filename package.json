@@ -1,6 +1,6 @@
 {
   "name": "what-data-type",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A simple library to check type of data",
   "main": "./lib/index.js",
   "scripts": {
