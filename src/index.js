@@ -2,7 +2,7 @@ function type() {
   return Object.prototype.toString.call(this).slice(8, -1);
 }
 
-const ASK = (() => {
+const WHAT_DATA_TYPE = (() => {
   const CHECKLIST = {};
 
   const TYPES = 'Array Object String Date RegExp Function Boolean Number Null Undefined'.split(' ');
@@ -17,4 +17,4 @@ const ASK = (() => {
   return CHECKLIST;
 })();
 
-export default ASK;
+export default WHAT_DATA_TYPE;
