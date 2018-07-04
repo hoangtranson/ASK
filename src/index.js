@@ -1,10 +1,20 @@
-const defaultAwesomeFunction = (name) => {
-  const returnStr = `I am the Default Awesome Function, fellow comrade! - ${name}`;
-  return returnStr;
-};
+function type() {
+  return Object.prototype.toString.call(this).slice(8, -1);
+}
 
-const awesomeFunction = () => 'I am just an Awesome Function';
+const ASK = (() => {
+  const CHECKLIST = {};
 
-export default defaultAwesomeFunction;
+  const TYPES = 'Array Object String Date RegExp Function Boolean Number Null Undefined'.split(' ');
 
-export { awesomeFunction };
+  for (let i = 0; i < TYPES.length; i += 1) {
+    CHECKLIST[`is${TYPES[i]}`] = (function (self) {
+      return function (ele) {
+        return type.call(ele) === self;
+      };
+    }(TYPES[i]));
+  }
+  return CHECKLIST;
+})();
+
+export default ASK;
