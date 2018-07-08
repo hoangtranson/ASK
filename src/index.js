@@ -22,6 +22,9 @@ const WHAT_DATA_TYPE = (() => {
     const IsGeneratorFunctionObj = Object.prototype.toString.call(fn) === '[object GeneratorFunction]';
     return IsGeneratorFunction || IsGeneratorFunctionObj;
   };
+  const isEmpty = args => args === '';
+  const isSet = args => getObjectType(args) === '[object Set]';
+  const isWeakSet = args => getObjectType(args) === '[object WeakSet]';
 
   return {
     isArray,
@@ -36,7 +39,10 @@ const WHAT_DATA_TYPE = (() => {
     isUndefined,
     isGeneratorFn,
     isMap,
-    isWeakMap
+    isWeakMap,
+    isEmpty,
+    isSet,
+    isWeakSet
   };
 })();
 

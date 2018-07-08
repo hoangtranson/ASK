@@ -2,7 +2,10 @@ import { assert, expect } from 'chai';
 import ASK from '../src/index';
 
 describe('ASK module PASS cases', () => {
-  let _arr, _obj, _string, _date, _regExp, _function, _boolean, _number, _null, _undefined, _generator, _map, _weekMap;
+  let _arr, _obj, _string, _date,
+  _regExp, _function, _boolean, _number,
+  _null, _undefined, _generator, _map,
+  _weekMap, _empty, _set, _weakSet;
   beforeEach( () => {
     _arr = [];
     _obj = {};
@@ -17,6 +20,9 @@ describe('ASK module PASS cases', () => {
     _generator = function* (){};
     _map = new Map();
     _weekMap = new WeakMap();
+    _empty = '';
+    _set = new Set();
+    _weakSet = new WeakSet();
   })
 
   it('ASK.isArray([]) => true', () => {
@@ -70,11 +76,26 @@ describe('ASK module PASS cases', () => {
   it('ASK.isWeakMap(new WeakMap()) => true', () => {
     expect(ASK.isWeakMap(_weekMap)).to.equal(true);
   });
+
+  it('ASK.isEmpty("") => true', () => {
+    expect(ASK.isEmpty(_empty)).to.equal(true);
+  });
+
+  it('ASK.isSet(new Set()) => true', () => {
+    expect(ASK.isSet(_set)).to.equal(true);
+  });
+
+  it('ASK.isWeakSet(new WeakSet()) => true', () => {
+    expect(ASK.isWeakSet(_weakSet)).to.equal(true);
+  });
 });
 
 
 describe('ASK module FAIL cases', () => {
-  let _arr, _obj, _string, _date, _regExp, _function, _boolean, _number, _null, _undefined, _generator, _map, _weekMap;
+  let _arr, _obj, _string, _date,
+  _regExp, _function, _boolean, _number,
+  _null, _undefined, _generator, _map,
+  _weekMap, _empty, _set, _weakSet;
   beforeEach( () => {
     _arr = {};
     _obj = [];
@@ -89,6 +110,9 @@ describe('ASK module FAIL cases', () => {
     _generator = function (){};
     _map = {};
     _weekMap = new Set();
+    _empty = 1;
+    _set = new Map();
+    _weakSet = new WeakMap();
   })
 
   it('ASK.isArray({}) => false', () => {
@@ -141,5 +165,17 @@ describe('ASK module FAIL cases', () => {
 
   it('ASK.isWeakMap(new WeakMap()) => false', () => {
     expect(ASK.isWeakMap(_weekMap)).to.equal(false);
+  });
+
+  it('ASK.isEmpty(1) => false', () => {
+    expect(ASK.isEmpty(_empty)).to.equal(false);
+  });
+
+  it('ASK.isSet(new Map()) => false', () => {
+    expect(ASK.isSet(_set)).to.equal(false);
+  });
+
+  it('ASK.isWeakSet(new WeakMap()) => true', () => {
+    expect(ASK.isWeakSet(_weakSet)).to.equal(false);
   });
 });
