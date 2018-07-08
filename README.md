@@ -17,6 +17,9 @@ ASK.isUndefined(); // true
 ASK.isMap(new Map()) // true
 ASK.isWeakMap(new WeakMap()) // true
 ASK.isGeneratorFn(function* (){}) // true
+ASK.isEmpty('') // true
+ASK.isSet(new Set()) // true
+ASK.isWeakSet(new WeakSet()) // true
 ```
 
 ## Installing with npm
@@ -26,6 +29,10 @@ ASK.isGeneratorFn(function* (){}) // true
 ```
 
 ## Release history
+- 1.3.0
+  - Add method check empty string
+  - Add method check set
+  - Add method check weakset
 - 1.2.1
   - Updated new function description
 - 1.2.0
