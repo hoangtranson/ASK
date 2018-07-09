@@ -48,5 +48,7 @@ ASK.isWeakSet(new WeakSet()) // true
 ## Contribution
 
 step 1: check out code -> create banch.
+
 step 2: implementation + unit test + update readme.
+
 step 3: create pull request to master.
