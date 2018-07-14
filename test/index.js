@@ -5,7 +5,7 @@ describe('ASK module PASS cases', () => {
   let _arr, _obj, _string, _date,
   _regExp, _function, _boolean, _number,
   _null, _undefined, _generator, _map,
-  _weekMap, _empty, _set, _weakSet;
+  _weakMap, _empty, _set, _weakSet, _symbol;
   beforeEach( () => {
     _arr = [];
     _obj = {};
@@ -19,10 +19,11 @@ describe('ASK module PASS cases', () => {
     _undefined = undefined;
     _generator = function* (){};
     _map = new Map();
-    _weekMap = new WeakMap();
+    _weakMap = new WeakMap();
     _empty = '';
     _set = new Set();
     _weakSet = new WeakSet();
+    _symbol = Symbol();
   })
 
   it('ASK.isArray([]) => true', () => {
@@ -74,7 +75,7 @@ describe('ASK module PASS cases', () => {
   });
 
   it('ASK.isWeakMap(new WeakMap()) => true', () => {
-    expect(ASK.isWeakMap(_weekMap)).to.equal(true);
+    expect(ASK.isWeakMap(_weakMap)).to.equal(true);
   });
 
   it('ASK.isEmpty("") => true', () => {
@@ -88,6 +89,10 @@ describe('ASK module PASS cases', () => {
   it('ASK.isWeakSet(new WeakSet()) => true', () => {
     expect(ASK.isWeakSet(_weakSet)).to.equal(true);
   });
+
+  it('ASK.isSymbol(new Symbol()) => true', () => {
+    expect(ASK.isSymbol(_symbol)).to.equal(true);
+  });
 });
 
 
@@ -95,7 +100,7 @@ describe('ASK module FAIL cases', () => {
   let _arr, _obj, _string, _date,
   _regExp, _function, _boolean, _number,
   _null, _undefined, _generator, _map,
-  _weekMap, _empty, _set, _weakSet;
+  _weakMap, _empty, _set, _weakSet, _symbol;
   beforeEach( () => {
     _arr = {};
     _obj = [];
@@ -109,10 +114,11 @@ describe('ASK module FAIL cases', () => {
     _undefined = null;
     _generator = function (){};
     _map = {};
-    _weekMap = new Set();
+    _weakMap = new Set();
     _empty = 1;
     _set = new Map();
     _weakSet = new WeakMap();
+    _symbol = "symbol";
   })
 
   it('ASK.isArray({}) => false', () => {
@@ -164,7 +170,7 @@ describe('ASK module FAIL cases', () => {
   });
 
   it('ASK.isWeakMap(new WeakMap()) => false', () => {
-    expect(ASK.isWeakMap(_weekMap)).to.equal(false);
+    expect(ASK.isWeakMap(_weakMap)).to.equal(false);
   });
 
   it('ASK.isEmpty(1) => false', () => {
@@ -175,7 +181,11 @@ describe('ASK module FAIL cases', () => {
     expect(ASK.isSet(_set)).to.equal(false);
   });
 
-  it('ASK.isWeakSet(new WeakMap()) => true', () => {
+  it('ASK.isWeakSet(new WeakMap()) => false', () => {
     expect(ASK.isWeakSet(_weakSet)).to.equal(false);
+  });
+
+  it('ASK.isSymbol("") => false', () => {
+    expect(ASK.isSymbol(_symbol)).to.equal(false);
   });
 });
