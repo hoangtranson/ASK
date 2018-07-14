@@ -24,6 +24,7 @@ const WHAT_DATA_TYPE = (() => {
   };
   const isEmpty = args => args === '';
   const isSet = args => getObjectType(args) === '[object Set]';
+  const isSymbol = args => getObjectType(args) === '[object Symbol]';
   const isWeakSet = args => getObjectType(args) === '[object WeakSet]';
 
   return {
@@ -42,6 +43,7 @@ const WHAT_DATA_TYPE = (() => {
     isWeakMap,
     isEmpty,
     isSet,
+    isSymbol,
     isWeakSet
   };
 })();
