@@ -20,6 +20,7 @@ ASK.isGeneratorFn(function* (){}) // true
 ASK.isEmpty('') // true
 ASK.isSet(new Set()) // true
 ASK.isWeakSet(new WeakSet()) // true
+ASK.isSymbol(new Symbol()) // true
 ```
 
 ## Installing with npm
@@ -29,6 +30,9 @@ ASK.isWeakSet(new WeakSet()) // true
 ```
 
 ## Release history
+
+- 1.4.0
+  - Add method check Symbol
 - 1.3.0
   - Add method check empty string
   - Add method check set
